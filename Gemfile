@@ -46,6 +46,8 @@ gem 'bootsnap', require: false
 # gem "sassc-rails"
 
 # My gems
+gem 'faker', '~> 1.6', '>= 1.6.6'
+gem 'pry-rails'
 gem 'rubocop', '~> 1.24'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]

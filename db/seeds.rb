@@ -5,3 +5,18 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+# seed data for patients table
+
+Patient.create name: 'Tokyo'
+Patient.create name: 'Denver'
+Patient.create name: 'Raquel'
+Patient.create name: 'Nairobi'
+Patient.create name: 'Rio'
+
+
+
+
+
+
+
