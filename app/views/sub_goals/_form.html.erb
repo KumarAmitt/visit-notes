@@ -1,0 +1,22 @@
+<%= form_with(model: [@goal, sub_goal], local: true) do |form| %>
+  <% if sub_goal.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(sub_goal.errors.count, "error") %> prohibited this sub_goal from being saved:</h2>
+
+      <ul>
+        <% sub_goal.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

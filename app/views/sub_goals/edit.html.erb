@@ -1,0 +1,10 @@
+<h1>Editing sub goal</h1>
+
+<%= render "form", sub_goal: @sub_goal %>
+
+<br>
+
+<div>
+  <%= link_to "Show this sub goal", [@goal, @sub_goal] %> |
+  <%= link_to "Back to sub goals", goal_sub_goals_path(@goal) %>
+</div>

@@ -2,13 +2,19 @@
 
 <h1>Goals</h1>
 
+<%= link_to "Add New goal", new_goal_path %>
+<br />
+<br />
+
 <div id="goals">
   <% @goals.each do |goal| %>
-    <%= render goal %>
-    <p>
-      <%= link_to "Show this goal", goal %>
-    </p>
+    <div class="item">
+      <%= render goal %>
+      <p>
+        <%= link_to "Show this goal", goal %> ||
+        <%= link_to 'Go to Sub-goals', goal_sub_goals_path(goal)%>
+      </p>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New goal", new_goal_path %>

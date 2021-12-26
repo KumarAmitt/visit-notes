@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Sub goals</h1>
+
+<div id="sub_goals">
+  <% @sub_goals.each do |sub_goal| %>
+    <div class="item">
+      <%= render sub_goal %>
+      <p>
+        <%#= link_to "Show this sub goal", sub_goal %>
+        <%= link_to "Show this sub goal", goal_sub_goal_path(@goal, sub_goal) %> ||
+        <%= link_to "Edit this sub goal", edit_goal_sub_goal_path(@goal, sub_goal) %> ||
+        <%= link_to "Destroy this sub goal", [@goal, sub_goal] %>
+      </p>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to "New sub goal", new_goal_sub_goal_path(@goal) %>
