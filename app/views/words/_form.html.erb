@@ -1,4 +1,4 @@
-<%= form_with(model: word) do |form| %>
+<%= form_with(model: [@goal, @sub_goal, word]) do |form| %>
   <% if word.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(word.errors.count, "error") %> prohibited this word from being saved:</h2>
@@ -10,6 +10,11 @@
       </ul>
     </div>
   <% end %>
+
+  <div>
+    <%= @sub_goal.goal.title %> ||
+    <%= @sub_goal.title %> ||
+  </div>
 
   <div>
     <%= form.label :name, style: "display: block" %>

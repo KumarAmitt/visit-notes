@@ -47,3 +47,7 @@ td {
 .sub_goal__actions {
   display: flex;
 }
+
+.word {
+  width: 800px;
+}
