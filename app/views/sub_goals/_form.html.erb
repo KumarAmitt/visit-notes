@@ -12,6 +12,11 @@
   <% end %>
 
   <div>
+    <%= @goal.title %> ||
+    <%= @goal.more_info %>
+  </div>
+
+  <div>
     <%= form.label :title, style: "display: block" %>
     <%= form.text_field :title %>
   </div>

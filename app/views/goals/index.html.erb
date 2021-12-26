@@ -1,6 +1,6 @@
-<p style="color: green"><%= notice %></p>
-
 <h1>Goals</h1>
+
+<p style="color: green"><%= notice %></p>
 
 <%= link_to "Add New goal", new_goal_path %>
 <br />
@@ -8,12 +8,15 @@
 
 <div id="goals">
   <% @goals.each do |goal| %>
-    <div class="item">
-      <%= render goal %>
-      <p>
-        <%= link_to "Show this goal", goal %> ||
-        <%= link_to 'Go to Sub-goals', goal_sub_goals_path(goal)%>
-      </p>
+    <div class="goal">
+      <div>
+        <%= render goal %>
+      </div>
+      <div class="sub_goal__actions">
+        <%= link_to "Add sub-goal", new_goal_sub_goal_path(goal) %> ||
+        <%= link_to "Edit", edit_goal_path(goal) %>
+        <%= button_to "Delete", goal, method: :delete, class: :button %>
+      </div>
     </div>
   <% end %>
 </div>

@@ -17,7 +17,7 @@ class GoalsController < ApplicationController
     @goal = Goal.new(goal_params)
 
     if @goal.save
-      redirect_to goal_url(@goal), notice: 'Goal was successfully created.'
+      redirect_to goals_path, notice: 'Goal was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -25,7 +25,7 @@ class GoalsController < ApplicationController
 
   def update
     if @goal.update(goal_params)
-      redirect_to goal_url(@goal), notice: 'Goal was successfully updated.'
+      redirect_to goals_path, notice: 'Goal was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -34,7 +34,7 @@ class GoalsController < ApplicationController
   def destroy
     @goal.destroy
 
-    redirect_to goals_url, notice: 'Goal was successfully destroyed.'
+    redirect_to goals_path, notice: 'Goal was successfully destroyed.'
   end
 
   private
