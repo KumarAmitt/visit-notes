@@ -1,0 +1,11 @@
+<%= form_with(model: [@patient, @poc], local: true) do |form| %>
+
+  <div>
+    <%= form.label :goal_id, style: "display: block" %>
+    <%= form.select(:goal_id, @available_goals.map { |g| [g.title, g.id] }) %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
