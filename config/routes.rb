@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :patients, only: [:index, :show]
+  resources :patients, only: [:index, :show] do
+    resources :plan_of_cares, only: [:index, :new, :create]
+  end
 
   resources :goals do
     resources :sub_goals do

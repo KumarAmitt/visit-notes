@@ -1,0 +1,14 @@
+<h1><%= @patient.name %>'s Plan of Care</h1>
+
+<%= link_to 'Back', root_path %> ||
+
+<%= link_to "Add goal for #{@patient.name}", new_patient_plan_of_care_path(@patient) %>
+
+<br>
+<br>
+
+<% @patient_goals.each do |goal| %>
+  <%= goal.title %> |
+  <br>
+<% end %>
+

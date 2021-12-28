@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_26_141405) do
+ActiveRecord::Schema.define(version: 2021_12_28_141918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,16 @@ ActiveRecord::Schema.define(version: 2021_12_26_141405) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "plan_of_cares", force: :cascade do |t|
+    t.bigint "patient_id", null: false
+    t.bigint "goal_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["goal_id"], name: "index_plan_of_cares_on_goal_id"
+    t.index ["patient_id", "goal_id"], name: "index_plan_of_cares_on_patient_id_and_goal_id", unique: true
+    t.index ["patient_id"], name: "index_plan_of_cares_on_patient_id"
+  end
+
   create_table "sub_goals", force: :cascade do |t|
     t.string "title"
     t.bigint "goal_id"
@@ -45,6 +55,8 @@ ActiveRecord::Schema.define(version: 2021_12_26_141405) do
     t.index ["sub_goal_id"], name: "index_words_on_sub_goal_id"
   end
 
+  add_foreign_key "plan_of_cares", "goals"
+  add_foreign_key "plan_of_cares", "patients"
   add_foreign_key "sub_goals", "goals"
   add_foreign_key "words", "sub_goals"
 end
