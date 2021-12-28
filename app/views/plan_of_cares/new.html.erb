@@ -1,15 +1,10 @@
-<h1>PlanOfCares#new</h1>
+<h1>Add New Goal for <%= @patient.name %></h1>
 
 <%= form_with(model: [@patient, @poc], local: true) do |form| %>
 
   <div>
-    <%= form.label :patient_id, style: "display: block" %>
-    <%= form.text_field :patient_id %>
-  </div>
-
-  <div>
     <%= form.label :goal_id, style: "display: block" %>
-    <%= form.select(:goal_id, @remaining_goals.map { |g| [g.title, g.id] }) %>
+    <%= form.select(:goal_id, @available_goals.map { |g| [g.title, g.id] }) %>
   </div>
 
   <div>
@@ -17,3 +12,4 @@
   </div>
 <% end %>
 
+<%= link_to 'Back', patient_plan_of_cares_path(@patient) %>
