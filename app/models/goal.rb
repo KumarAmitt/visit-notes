@@ -3,4 +3,6 @@ class Goal < ApplicationRecord
 
   has_many :plan_of_cares
   has_many :patients, through: :plan_of_cares
+
+  validates :title, presence: true, uniqueness: true
 end

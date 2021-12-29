@@ -4,6 +4,7 @@ class WordsController < ApplicationController
 
   def new
     @word = @sub_goal.words.build
+    @words = Word.all
   end
 
   def edit; end
@@ -12,7 +13,7 @@ class WordsController < ApplicationController
     @word = @sub_goal.words.build(word_params)
 
     if @word.save
-      redirect_to goals_path, notice: 'Word was successfully created.'
+      redirect_to goals_path, notice: 'Word  created'
     else
       render :new, status: :unprocessable_entity
     end
@@ -43,6 +44,6 @@ class WordsController < ApplicationController
   end
 
   def word_params
-    params.require(:word).permit(:name, :sub_goal_id)
+    params.require(:word).permit(:name, :sub_goal_id, :word_id)
   end
 end

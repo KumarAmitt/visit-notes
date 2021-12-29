@@ -5,6 +5,13 @@
     <%= form.select(:goal_id, @available_goals.map { |g| [g.title, g.id] }) %>
   </div>
 
+<!--  <input list="goals" class="form-control" name="goals">-->
+<!--  <datalist id="goals">-->
+    <%# @available_goals.each do |goal| %>
+<!--      <option value="<%#= goal.title %>">-->
+    <%# end  %>
+<!--  </datalist>-->
+
   <div>
     <%= form.submit %>
   </div>

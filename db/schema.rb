@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2021_12_28_141918) do
     t.string "more_info"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["title"], name: "index_goals_on_title", unique: true
   end
 
   create_table "patients", force: :cascade do |t|
