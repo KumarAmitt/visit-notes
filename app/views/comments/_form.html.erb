@@ -1,0 +1,21 @@
+<%= form_with(model: [@patient, @comment], local: true) do |form| %>
+
+  <div>
+    <%= form.label :patient_id, style: "display: block" %>
+    <%= form.text_field :patient_id %>
+  </div>
+
+  <div>
+    <%= form.label :sub_goal_id, style: "display: block" %>
+    <%= form.text_field :sub_goal_id, value: params[:sub_goal_id] %>
+  </div>
+
+  <div>
+    <%= form.label :message, style: "display: block" %>
+    <%= form.text_area :message %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

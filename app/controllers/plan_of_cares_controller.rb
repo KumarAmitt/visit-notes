@@ -2,7 +2,7 @@ class PlanOfCaresController < ApplicationController
   before_action :find_patient
 
   def index
-    @patient_goals = @patient.goals
+    @patient_goals = @patient.goals.includes(sub_goals: :words)
   end
 
   def new

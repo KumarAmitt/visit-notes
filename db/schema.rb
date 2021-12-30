@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_28_141918) do
+ActiveRecord::Schema.define(version: 2021_12_30_112837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.text "message"
+    t.bigint "patient_id", null: false
+    t.bigint "sub_goal_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["patient_id", "sub_goal_id"], name: "index_comments_on_patient_id_and_sub_goal_id", unique: true
+    t.index ["patient_id"], name: "index_comments_on_patient_id"
+    t.index ["sub_goal_id"], name: "index_comments_on_sub_goal_id"
+  end
 
   create_table "goals", force: :cascade do |t|
     t.string "title"
@@ -56,6 +67,8 @@ ActiveRecord::Schema.define(version: 2021_12_28_141918) do
     t.index ["sub_goal_id"], name: "index_words_on_sub_goal_id"
   end
 
+  add_foreign_key "comments", "patients"
+  add_foreign_key "comments", "sub_goals"
   add_foreign_key "plan_of_cares", "goals"
   add_foreign_key "plan_of_cares", "patients"
   add_foreign_key "sub_goals", "goals"

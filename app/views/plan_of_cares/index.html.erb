@@ -9,8 +9,42 @@
 
 <p style="color: green"><%= notice %></p>
 
-<% @patient_goals.each do |goal| %>
-  <%= goal.title %> |
-  <br>
-<% end %>
+<div style="background-color: #d864f1">
+  <% @patient_goals.each do |goal| %>
+    <%= goal.title%>
+
+    <div style="background-color: #e0dc3d">
+      <% goal.sub_goals.each do |sub_goal| %>
+        <%= sub_goal.title %> |
+
+        <% unless @patient.sub_goals.exists?(sub_goal.id) %>
+          <%=  link_to 'Create Note', new_patient_comment_path(@patient, {sub_goal_id: sub_goal.id})  %>
+        <%  end %>
+
+
+          <div style="background-color: #85d472">
+            <% sub_goal.words.each do |word| %>
+              <%= word.name %>
+              <br>
+            <% end %>
+          </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<%# @patient_goals.each do |goal| %>
+  <%#= goal.title%>
+<!--  <br>-->
+  <%# goal.sub_goals.each do |sub| %>
+    <%#= sub.title %>
+<!--    <br>-->
+    <%# sub.words.each do |word| %>
+      <%#= word.name %>
+<!--      <br>-->
+    <%# end %>
+<!--    <br>-->
+  <%# end %>
+<!--  <br>-->
+<%# end %>
 
