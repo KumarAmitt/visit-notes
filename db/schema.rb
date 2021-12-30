@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_30_112837) do
+ActiveRecord::Schema.define(version: 2021_12_30_175954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,18 @@ ActiveRecord::Schema.define(version: 2021_12_30_112837) do
     t.index ["patient_id"], name: "index_plan_of_cares_on_patient_id"
   end
 
+  create_table "pronunciations", force: :cascade do |t|
+    t.string "trials"
+    t.string "prompting_level"
+    t.bigint "patient_id", null: false
+    t.bigint "word_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["patient_id", "word_id"], name: "index_pronunciations_on_patient_id_and_word_id", unique: true
+    t.index ["patient_id"], name: "index_pronunciations_on_patient_id"
+    t.index ["word_id"], name: "index_pronunciations_on_word_id"
+  end
+
   create_table "sub_goals", force: :cascade do |t|
     t.string "title"
     t.bigint "goal_id"
@@ -71,6 +83,8 @@ ActiveRecord::Schema.define(version: 2021_12_30_112837) do
   add_foreign_key "comments", "sub_goals"
   add_foreign_key "plan_of_cares", "goals"
   add_foreign_key "plan_of_cares", "patients"
+  add_foreign_key "pronunciations", "patients"
+  add_foreign_key "pronunciations", "words"
   add_foreign_key "sub_goals", "goals"
   add_foreign_key "words", "sub_goals"
 end
