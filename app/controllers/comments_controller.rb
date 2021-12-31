@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
   def new
     @patient = Patient.find(params[:patient_id])
     @comment = @patient.comments.build
+    @pronunciation = @patient.pronunciations.build
   end
 
   def create
@@ -20,7 +21,7 @@ class CommentsController < ApplicationController
   #   @patient = Patient.find(params[:patient_id])
   #   @comment = Comment.find(params[:comment_id])
   # end
-
+  #
   # def update
   # end
 

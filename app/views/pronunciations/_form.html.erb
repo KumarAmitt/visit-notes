@@ -1,0 +1,35 @@
+<%= form_with(model: [@patient, @pronunciation], local: true) do |form| %>
+
+  <div>
+    <%= form.label :patient_id, style: "display: block" %>
+    <%= form.text_field :patient_id %>
+  </div>
+
+  <div>
+    <%= form.label :word_id, style: "display: block" %>
+    <%= form.text_field :word_id, value: params[:word_id] %>
+  </div>
+
+  <div>
+    <%= form.label :trials, style: "display: block" %>
+    <%= form.text_field :trials %>
+  </div>
+
+  <div>
+    <%= form.label :prompting_level, style: "display: block" %>
+
+    <%= form.radio_button :prompting_level, 'Independent', checked: true %>
+    <%= form.label :prompting_level, 'Independent' %>
+
+    <%= form.radio_button :prompting_level, 'Intermediate' %>
+    <%= form.label :prompting_level, 'Intermediate' %>
+
+    <%= form.radio_button :prompting_level, 'Controlling' %>
+    <%= form.label :prompting_level, 'Controlling' %>
+
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
