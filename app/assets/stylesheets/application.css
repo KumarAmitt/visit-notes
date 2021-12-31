@@ -21,33 +21,12 @@ td {
   border: 1px solid #ccc;
 }
 
-.goal {
-  border: 1px solid green;
-  margin: 0.5em;
-  padding: 0.5em;
+.tile {
   display: flex;
   justify-content: space-between;
+  background-color: #eee;
 }
 
-.sub_goal {
+.links {
   display: flex;
-  justify-content: space-between;
-  padding: 0.5em;
-  width: 1000px;
-}
-
-.button {
-  color: red;
-  margin-left: 0.5em;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-}
-
-.sub_goal__actions {
-  display: flex;
-}
-
-.word {
-  width: 800px;
 }

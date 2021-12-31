@@ -1,25 +1,23 @@
-<div id="<%= dom_id goal %>">
 
-  <strong>Goal: </strong>
-  <%= goal.goal_type %> ||
-  <%= goal.title %> ||
-  <%= goal.more_info %>
-
-  <br />
-
-  <% goal.sub_goals.each do |sub_goal| %>
-
-    <div class="sub_goal">
-      <div>
-        <%= render sub_goal %>
-      </div>
-      <div class="sub_goal__actions">
-        <%= link_to "Add word", new_goal_sub_goal_word_path(goal, sub_goal) %> ||
-        <%= link_to "Edit", edit_goal_sub_goal_path(goal, sub_goal) %>
-        <%= button_to "Delete", [goal, sub_goal], method: :delete, class: :button %>
-      </div>
-    </div>
-  <% end %>
-
+<div class="tile">
+  <div class="content">
+    <strong>Goal: </strong>
+    <%= goal.goal_type %> ||
+    <%= goal.title %> ||
+    <%= goal.more_info %>
+  </div>
+  <div class="links">
+    <%= link_to "Add sub-goal", new_goal_sub_goal_path(goal) %> ||
+    <%= link_to "Edit", edit_goal_path(goal) %>
+    <%= button_to "Delete", goal, method: :delete, class: :button %>
+  </div>
 </div>
+
+<br />
+
+<% goal.sub_goals.each do |sub_goal| %>
+  <%= render sub_goal, goal: goal %>
+<% end %>
+
+
 

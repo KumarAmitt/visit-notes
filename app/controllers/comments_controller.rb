@@ -14,8 +14,15 @@ class CommentsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-
   end
+
+  # def edit
+  #   @patient = Patient.find(params[:patient_id])
+  #   @comment = Comment.find(params[:comment_id])
+  # end
+
+  # def update
+  # end
 
   private
 

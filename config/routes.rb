@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :patients, only: [:index, :show] do
     resources :plan_of_cares, only: [:index, :new, :create]
-    resources :comments, only: [:new, :create]
+    resources :comments, only: [:new, :create, :edit, :update]
   end
 
   resources :goals do

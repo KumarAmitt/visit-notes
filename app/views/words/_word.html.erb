@@ -1,6 +1,11 @@
-<div id="<%= dom_id word %>">
 
+<div class="tile">
+  <div class="content">
     <strong>Word:</strong>
-    <%= word.name %>
-
+    <%= word.name %> ||
+  </div>
+  <div class="links">
+    <%= link_to "Edit", edit_goal_sub_goal_word_path(goal, sub_goal, word) %>
+    <%= button_to "Delete", [sub_goal.goal, sub_goal, word], method: :delete, class: :button %>
+  </div>
 </div>

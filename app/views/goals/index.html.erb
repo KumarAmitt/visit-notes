@@ -6,18 +6,5 @@
 <br />
 <br />
 
-<div id="goals">
-  <% @goals.each do |goal| %>
-    <div class="goal">
-      <div>
-        <%= render goal %>
-      </div>
-      <div class="sub_goal__actions">
-        <%= link_to "Add sub-goal", new_goal_sub_goal_path(goal) %> ||
-        <%= link_to "Edit", edit_goal_path(goal) %>
-        <%= button_to "Delete", goal, method: :delete, class: :button %>
-      </div>
-    </div>
-  <% end %>
-</div>
+<%= render @goals, role: 'admin'%>
 
