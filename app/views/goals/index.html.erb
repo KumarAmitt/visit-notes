@@ -1,12 +1,35 @@
-<h1>All Goals</h1>
+<% @page_title = 'All Goals' %>
 
-<%= link_to "Add New goal", new_goal_path, class: 'my-button' %>
-<br />
-<br />
+<div class="d-flex justify-content-end">
+  <%= link_to "Add New goal", new_goal_path, class: 'my-button' %>
+</div>
 
-<h2>Long term Goals</h2>
-<%= render @ltg_goals %>
 
-<h2>Short term Goals</h2>
-<%= render @stg_goals %>
+<div class="d-flex mt-1 goals">
+  <div class="goals__item">
+    <% @ltg_goals.each do |goal| %>
+      <div class="my-tile my-tile__ltg">
+        <%= link_to goal_path(goal.id), class: 'my-tile__item' do %>
+          <div class="goal-type"><%= goal.goal_type %></div>
+          <div class="goal-title"><%= goal.title %></div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="goals__item">
+    <% @stg_goals.each do |goal| %>
+      <div class="my-tile my-tile__stg">
+        <%= link_to goal_path(goal.id), class: 'my-tile__item' do %>
+          <div class="goal-type"><%= goal.goal_type %></div>
+          <div class="goal-title"><%= goal.title %></div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
 

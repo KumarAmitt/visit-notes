@@ -1,0 +1,50 @@
+/* MY- CONTAINER */
+
+.my-container {
+  max-width: 94%;
+  margin: 0 auto;
+}
+
+/* MY_NAVBAR */
+
+.my-navbar-bg {
+  background: transparent linear-gradient(90deg, #B621FE 0%, #1FD1F9 100%) 0% 0% no-repeat padding-box;
+}
+
+/* MY-BUTTON */
+
+.my-button {
+  background: transparent linear-gradient(90deg, #b621fe 0%, #1fd1f9 100%) 0% 0% no-repeat padding-box;
+  border-radius: 1em;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+  border: 2px solid transparent;
+}
+
+.my-button:hover {
+  background: #fff 0% 0% no-repeat padding-box;
+  color: #b621fe;
+  border-color: #b621fe;
+}
+
+/*MY_TILE*/
+
+.my-tile {
+  border: 1px solid;
+  border-left-width: 5px;
+  border-radius: 0.4em;
+  margin-top: 0.5em;
+}
+
+.my-tile__item {
+  display: flex;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  color: #6a79fc;
+}
+
+.my-tile__item:hover {
+  color: #fff;
+}

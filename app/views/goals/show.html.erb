@@ -1,6 +1,6 @@
 <h1>Goal show</h1>
 
-<%= render 'show_goal', goal: @goal, role: 'admin'%>
+<%= render @goal, role: 'admin'%>
 
 <div>
   <%= link_to "Back to goals", goals_path %>

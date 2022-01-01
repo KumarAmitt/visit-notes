@@ -1,0 +1,38 @@
+.goals__item {
+  width: 50%;
+  margin-top: 1em;
+}
+
+.goals__item:first-child {
+  margin-right: 2em;
+}
+
+.goals__item:nth-child(2) {
+  margin-left: 2em;
+}
+
+.goal-type {
+  width: 10%;
+  border-right: 1px solid #ccc;
+  margin-right: 1em;
+}
+
+.goal-title {
+  width: 90%;
+}
+
+.my-tile__ltg {
+  border-color: #b621fe;
+}
+
+.my-tile__stg {
+  border-color: #1fd1f9;
+}
+
+.my-tile__ltg:hover {
+  background: transparent linear-gradient(90deg, #b621fe 0%, #1fd1f9 100%) 0% 0% no-repeat padding-box;
+}
+
+.my-tile__stg:hover {
+  background: transparent linear-gradient(90deg, #1fd1f9 0%, #b621fe 100%) 0% 0% no-repeat padding-box;
+}
