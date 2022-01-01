@@ -49,3 +49,8 @@ td {
   border: 2px solid #b621fe;
   color: #b621fe;
 }
+
+.my-navbar-bg {
+  background: transparent linear-gradient(90deg, #B621FE 0%, #1FD1F9 100%) 0% 0% no-repeat padding-box;
+}
+
