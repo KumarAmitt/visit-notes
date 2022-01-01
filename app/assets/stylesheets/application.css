@@ -14,6 +14,10 @@
  *= require_self
  */
 
+body {
+  font-family: sans-serif;
+}
+
 table,
 th,
 tr,
@@ -29,4 +33,19 @@ td {
 
 .links {
   display: flex;
+}
+
+.my-button {
+  background: transparent linear-gradient(90deg, #b621fe 0%, #1fd1f9 100%) 0% 0% no-repeat padding-box;
+  border-radius: 1em;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+}
+
+.my-button:hover {
+  background: #fff 0% 0% no-repeat padding-box;
+  border: 2px solid #b621fe;
+  color: #b621fe;
 }

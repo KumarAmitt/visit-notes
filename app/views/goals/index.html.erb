@@ -1,10 +1,12 @@
-<h1>Goals</h1>
+<h1>All Goals</h1>
 
-<p style="color: green"><%= notice %></p>
-
-<%= link_to "Add New goal", new_goal_path %>
+<%= link_to "Add New goal", new_goal_path, class: 'my-button' %>
 <br />
 <br />
 
-<%= render @goals, role: 'admin'%>
+<h2>Long term Goals</h2>
+<%= render @ltg_goals %>
+
+<h2>Short term Goals</h2>
+<%= render @stg_goals %>
 

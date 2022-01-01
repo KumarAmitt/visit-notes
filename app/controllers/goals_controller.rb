@@ -2,7 +2,9 @@ class GoalsController < ApplicationController
   before_action :set_goal, only: %i[show edit update destroy]
 
   def index
-    @goals = Goal.all
+    @goals = Goal.alphabetically
+    @ltg_goals = @goals.ltg
+    @stg_goals = @goals.stg
   end
 
   def show; end
