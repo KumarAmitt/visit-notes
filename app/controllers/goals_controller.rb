@@ -1,5 +1,5 @@
 class GoalsController < ApplicationController
-  before_action :set_goal, only: %i[show edit update destroy]
+  before_action :set_goal, only: %i[edit update destroy]
 
   def index
     @goals = Goal.alphabetically
@@ -7,7 +7,9 @@ class GoalsController < ApplicationController
     @stg_goals = @goals.stg
   end
 
-  def show; end
+  def show
+    @goal = Goal.includes(sub_goals: :words).find(params[:id])
+  end
 
   def new
     @goal = Goal.new

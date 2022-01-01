@@ -1,7 +1,7 @@
 <% @page_title = 'All Goals' %>
 
 <div class="d-flex justify-content-end">
-  <%= link_to "Add New goal", new_goal_path, class: 'my-button' %>
+  <%= link_to "Add New goal", new_goal_path, class: 'my-btn' %>
 </div>
 
 
@@ -11,7 +11,7 @@
       <div class="my-tile my-tile__ltg">
         <%= link_to goal_path(goal.id), class: 'my-tile__item' do %>
           <div class="goal-type"><%= goal.goal_type %></div>
-          <div class="goal-title"><%= goal.title %></div>
+          <div class="goal-title"><%= truncate(goal.title, length: 70) %></div>
         <% end %>
       </div>
     <% end %>

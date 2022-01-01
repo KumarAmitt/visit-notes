@@ -1,0 +1,6 @@
+.acc-body__controls {
+  margin-top: 1em;
+  padding-top: 1em;
+  display: flex;
+  justify-content: space-evenly;
+}

@@ -1,23 +1,47 @@
-
-<div class="tile">
-  <div class="content">
-    <strong>Goal: </strong>
-    <%= goal.goal_type %> ||
-    <%= goal.title %> ||
-    <%= goal.more_info %>
+<div class="show_container d-flex">
+  <div class="show__left">
+    <div><%= link_to " Go Back", goals_path, class: 'my-btn' %></div>
+    <div class="d-flex flex-column align-items-center px-4 goal__body">
+      <div class="goal__type my-2"><%= goal.goal_type === 'STG' ? 'Short Term Goal' : 'Long term Goal' %></div>
+      <div class="goal__title my-2"><%= goal.title %></div>
+      <div class="goal__info my-2"><%= goal.more_info %></div>
+    </div>
+    <div class="d-flex justify-content-between my-button-group">
+      <% if role == 'admin' %>
+        <%= link_to "Add sub-goal", new_goal_sub_goal_path(goal), class: 'my-btn' %>
+        <%= link_to "Edit", edit_goal_path(goal), class: 'my-btn' %>
+        <%= button_to "Delete", goal, method: :delete, class: 'my-btn my-btn__delete' %>
+      <% end %>
+    </div>
   </div>
-  <div class="links">
-    <% if role == 'admin' %>
-      <%= link_to "Add sub-goal", new_goal_sub_goal_path(goal) %> ||
-      <%= link_to "Edit", edit_goal_path(goal) %>
-      <%= button_to "Delete", goal, method: :delete, class: :button %>
-    <% end %>
+  <div class="show__right">
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+      <% goal.sub_goals.each do |sub_goal| %>
+        <%= render sub_goal, goal: goal, role: role %>
+      <% end %>
+    </div>
   </div>
 </div>
 
-<br />
 
-<% goal.sub_goals.each do |sub_goal| %>
-  <%= render sub_goal, goal: goal, role: role %>
-<% end %>
+<%# goal.sub_goals.each do |sub_goal| %>
+  <%#= render sub_goal, goal: goal, role: role %>
+<%# end %>
+
+
+<!--<div>-->
+<!--  <div >-->
+<!--    <strong>Goal: </strong>-->
+<!--    <%#= goal.goal_type %> ||-->
+<!--    <%#= goal.title %> ||-->
+    <%#= goal.more_info %>
+<!--  </div>-->
+<!--  <div>-->
+    <%# if role == 'admin' %>
+<!--      <%#= link_to "Add sub-goal", new_goal_sub_goal_path(goal) %> ||-->
+      <%#= link_to "Edit", edit_goal_path(goal) %>
+      <%#= button_to "Delete", goal, method: :delete, class: :button %>
+    <%# end %>
+<!--  </div>-->
+<!--</div>-->
 

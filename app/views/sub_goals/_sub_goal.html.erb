@@ -1,30 +1,51 @@
-
-<div class="tile">
-  <div class="content">
-    <strong>Sub Goal:</strong>
-    <%= sub_goal.title %> ||
-  </div>
-  <div class="links">
-    <% if role == 'admin' %>
-      <%= link_to "Add word", new_goal_sub_goal_word_path(goal, sub_goal) %> ||
-      <%= link_to "Edit", edit_goal_sub_goal_path(goal, sub_goal) %>
-      <%= button_to "Delete", [goal, sub_goal], method: :delete, class: :button %>
-    <% end %>
-
-    <% if role == 'therapist' %>
-      <% if !@patient.sub_goals.exists?(sub_goal.id) %>
-        <%= link_to 'Create Note', new_patient_comment_path(@patient, {sub_goal_id: sub_goal.id}) %>
-      <% end %>
-    <% end %>
+<div class="accordion-item">
+  <h2 class="accordion-header" id="flush-headingOne">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-<%= sub_goal.id %>" aria-expanded="false" aria-controls="flush-<%= sub_goal.id %>">
+      <%= sub_goal.title %>
+    </button>
+  </h2>
+  <div id="flush-<%= sub_goal.id %>" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample" >
+    <div class="accordion-body">
+      <div class="card">
+        <% sub_goal.words.each do |word| %>
+          <%= render word, goal: goal, sub_goal: sub_goal, role: role %>
+        <% end %>
+      </div>
+      <div class="acc-body__controls">
+        <% if role == 'admin' %>
+          <%= link_to "Add word", new_goal_sub_goal_word_path(goal, sub_goal), class: 'my-btn my-btn__small' %>
+          <%= link_to "Edit", edit_goal_sub_goal_path(goal, sub_goal), class: 'my-btn my-btn__small' %>
+          <%= button_to "Delete", [goal, sub_goal], method: :delete, class: 'my-btn my-btn__small my-btn__delete' %>
+        <% else %>
+          <%= link_to 'Create Note', new_patient_comment_path(@patient, { sub_goal_id: sub_goal.id }), class: 'my-btn my-btn__small' unless @patient.sub_goals.exists?(sub_goal.id) %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
 
-<br>
 
-<% sub_goal.words.each do |word| %>
-  <%= render word, goal: goal, sub_goal: sub_goal, role: role %>
-<% end %>
 
-<br>
+
+<!--<div class="tile">-->
+<!--  <div class="content">-->
+<!--    <strong>Sub Goal:</strong>-->
+<!--    <%#= sub_goal.title %> ||-->
+<!--  </div>-->
+<!--  <div class="links">-->
+    <%# if role == 'admin' %>
+<!--      <%#= link_to "Add word", new_goal_sub_goal_word_path(goal, sub_goal) %> ||-->
+      <%#= link_to "Edit", edit_goal_sub_goal_path(goal, sub_goal) %>
+      <%#= button_to "Delete", [goal, sub_goal], method: :delete, class: :button %>
+    <%# end %>
+
+    <%# if role == 'therapist' %>
+      <%# if !@patient.sub_goals.exists?(sub_goal.id) %>
+        <%#= link_to 'Create Note', new_patient_comment_path(@patient, {sub_goal_id: sub_goal.id}) %>
+      <%# end %>
+    <%# end %>
+<!--  </div>-->
+<!--</div>-->
+
 
 

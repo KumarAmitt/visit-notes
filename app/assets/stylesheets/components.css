@@ -2,7 +2,7 @@
 
 .my-container {
   max-width: 94%;
-  margin: 0 auto;
+  margin: 4em auto 0;
 }
 
 /* MY_NAVBAR */
@@ -13,17 +13,27 @@
 
 /* MY-BUTTON */
 
-.my-button {
+.my-btn {
   background: transparent linear-gradient(90deg, #b621fe 0%, #1fd1f9 100%) 0% 0% no-repeat padding-box;
   border-radius: 1em;
   padding: 0.5em 1em;
   text-decoration: none;
   color: #fff;
   font-weight: 700;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
 }
 
-.my-button:hover {
+.my-btn__small {
+  border-radius: 1em;
+  padding: 0.2em 1em;
+  font-weight: normal;
+}
+
+.my-btn__delete {
+  background: transparent linear-gradient(90deg, #e02222 0%, #dc8d31 100%) 0% 0% no-repeat padding-box;
+}
+
+.my-btn:hover {
   background: #fff 0% 0% no-repeat padding-box;
   color: #b621fe;
   border-color: #b621fe;
@@ -48,3 +58,4 @@
 .my-tile__item:hover {
   color: #fff;
 }
+

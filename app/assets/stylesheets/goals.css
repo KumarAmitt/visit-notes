@@ -36,3 +36,50 @@
 .my-tile__stg:hover {
   background: transparent linear-gradient(90deg, #1fd1f9 0%, #b621fe 100%) 0% 0% no-repeat padding-box;
 }
+
+/*GOAL SHOW PAGE*/
+
+.show_container {
+  height: calc(100vh - 4em);
+}
+
+.show__left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.show__right {
+  flex: 2;
+  overflow: auto;
+  margin: 1em;
+}
+
+.show__right::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.show__right::-webkit-scrollbar-thumb {
+  background-color: #1fd1f9;
+}
+
+.my-button-group {
+  width: 90%;
+}
+
+.goal__type {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.goal__title {
+  font-weight: 700;
+  text-align: center;
+}
+
+.goal__info {
+  font-size: 0.8rem;
+}

@@ -1,7 +1,4 @@
-<h1>Goal show</h1>
+<% @page_title = truncate(@goal.title, length: 50) %>
 
 <%= render @goal, role: 'admin'%>
 
-<div>
-  <%= link_to "Back to goals", goals_path %>
-</div>

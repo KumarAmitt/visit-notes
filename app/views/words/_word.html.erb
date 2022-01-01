@@ -1,19 +1,13 @@
 
-<div class="tile">
-  <div class="content">
-    <strong>Word:</strong>
-    <%= word.name %> ||
-  </div>
-  <div class="links">
+<div class="d-flex justify-content-between word__tile">
+  <div class="word__name"><%= word.name %></div>
+  <div class="d-flex justify-content-evenly word__controls">
     <% if role == 'admin' %>
-      <%= link_to "Edit", edit_goal_sub_goal_word_path(goal, sub_goal, word) %>
-      <%= button_to "Delete", [sub_goal.goal, sub_goal, word], method: :delete, class: :button %>
-    <% end %>
-
-    <% if role == 'therapist' %>
-      <% if !@patient.words.exists?(word.id) %>
-        <%= link_to 'Do Trials', new_patient_pronunciation_path(@patient, {word_id: word.id}) %>
-      <% end %>
+      <%= link_to "Edit", edit_goal_sub_goal_word_path(goal, sub_goal, word), class: 'my-btn my-btn__small' %>
+      <%= button_to "Delete", [sub_goal.goal, sub_goal, word], method: :delete, class: 'my-btn my-btn__small my-btn__delete ' %>
+    <% else %>
+      <%= link_to 'Do Trials', new_patient_pronunciation_path(@patient, { word_id: word.id }), class: 'my-btn my-btn__small' unless @patient.words.exists?(word.id)%>
     <% end %>
   </div>
 </div>
+
