@@ -1,10 +1,10 @@
-<h1>Editing word</h1>
+<% @page_title = "Edit | #{@word.name}" %>
 
-<%= render "form", word: @word %>
-
-<br>
-
-<div>
-  <%= link_to "Back", goals_path %>
+<div class="my-form">
+  <%= link_to "<< Go Back", goals_path, class: 'back__link' %>
+  <div class="my-form__body">
+    <%= render "form", word: @word %>
+  </div>
 </div>
+
 

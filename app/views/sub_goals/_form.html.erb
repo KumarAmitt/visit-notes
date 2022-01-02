@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div>
-    <%= @goal.title %> ||
-    <%= @goal.more_info %>
+  <div class="my-form__info">
+    <span>Goal:</span>
+    <%= @goal.title %>
   </div>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+  <div class="my-form__control">
+    <%= form.label :title, 'Sub-Goal Title' %>
+    <%= form.text_field :title, placeholder: 'e.g. /sh/ IWP imitative' %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="my-form__control">
+    <%= form.submit class: 'my-form__action-btn' %>
   </div>
 <% end %>

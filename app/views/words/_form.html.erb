@@ -11,25 +11,24 @@
     </div>
   <% end %>
 
-  <div>
-    <%= @sub_goal.goal.title %> ||
-    <%= @sub_goal.title %> ||
+  <div class="my-form__info">
+    <div>
+      <span>Goal:</span>
+      <%= @sub_goal.goal.title %>
+    </div>
+    <div>
+      <span>Sub-Goal:</span>
+      <%= @sub_goal.title %>
+    </div>
   </div>
 
-<!--  <%#= form.label :name %>:-->
-  <%#= form.text_field :name, list: 'word' %>
-<!--  <datalist id="word">-->
-    <%# @words.each do |w| %>
-<!--      <option value="<%#= w.name %>"></option>-->
-    <%# end %>
-<!--  </datalist>-->
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="my-form__control">
+    <%= form.label :name, 'Enter the word: ' %>
+    <%= form.text_field :name, placeholder: 'e.g. fish' %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="my-form__control">
+    <%= form.submit class: 'my-form__action-btn' %>
   </div>
 <% end %>

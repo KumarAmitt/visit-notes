@@ -1,9 +1,20 @@
-<h1>Editing sub goal</h1>
+<!--<h1>Editing sub goal</h1>-->
 
-<%= render "form", sub_goal: @sub_goal %>
+<%#= render "form", sub_goal: @sub_goal %>
 
-<br>
+<!--<br>-->
 
-<div>
-  <%= link_to "Back", goals_path %>
+<!--<div>-->
+  <%#= link_to "Back", goals_path %>
+<!--</div>-->
+
+
+<% @page_title = 'Edit Sub-Goal' %>
+
+<div class="my-form">
+  <%= link_to "<< Go Back", goals_path, class: 'back__link' %>
+  <div class="my-form__body">
+    <%= render "form", sub_goal: @sub_goal %>
+  </div>
 </div>
+

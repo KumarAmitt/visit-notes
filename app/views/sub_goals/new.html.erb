@@ -1,9 +1,9 @@
-<h1>New sub goal</h1>
+<% @page_title = 'Add New Sub-Goal' %>
 
-<%= render "form", sub_goal: @sub_goal %>
-
-<br>
-
-<div>
-  <%= link_to "Back", goals_path %>
+<div class="my-form">
+  <%= link_to "<< Go Back", goals_path, class: 'back__link' %>
+  <div class="my-form__body">
+    <%= render "form", sub_goal: @sub_goal %>
+  </div>
 </div>
+

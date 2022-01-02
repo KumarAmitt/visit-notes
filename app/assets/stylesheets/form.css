@@ -19,6 +19,17 @@
   display: block;
 }
 
+.my-form__info {
+  margin-bottom: 2em;
+  color: royalblue;
+  font-style: oblique;
+}
+
+.my-form__info span {
+  font-weight: 700;
+  font-style: normal;
+}
+
 .my-form__action-btn {
   font-weight: 700;
   width: 50%;
