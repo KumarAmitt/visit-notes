@@ -11,22 +11,22 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+  <div class="my-form__control">
+    <%= form.label :title, 'Goal Title:' %>
+    <%= form.text_field :title, placeholder: 'e.g. named vocabulary in pictures -visual/verbal/max cues' %>
   </div>
 
-  <div>
-    <%= form.label :goal_type, style: "display: block" %>
+  <div class="my-form__control">
+    <%= form.label :goal_type, 'Goal Type:' %>
     <%= form.select :goal_type, %w[LTG STG] %>
   </div>
 
-  <div>
-    <%= form.label :more_info, style: "display: block" %>
-    <%= form.text_field :more_info %>
+  <div class="my-form__control">
+    <%= form.label :more_info, 'More Information:' %>
+    <%= form.text_area :more_info, placeholder: 'e.g. Expressive/Pragmatic Language - book (the tiny seed)' %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="my-form__control">
+    <%= form.submit class: 'my-form__action-btn' %>
   </div>
 <% end %>

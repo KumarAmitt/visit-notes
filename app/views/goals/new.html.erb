@@ -1,9 +1,10 @@
 <% @page_title = 'Add New Goal' %>
 
-<%= render "form", goal: @goal %>
-
-<br>
-
-<div>
-  <%= link_to "Back to goals", goals_path %>
+<div class="my-form">
+  <%= link_to "<< Go Back", goals_path, class: 'back__link' %>
+  <div class="my-form__body">
+    <%= render "form", goal: @goal %>
+  </div>
 </div>
+
+
