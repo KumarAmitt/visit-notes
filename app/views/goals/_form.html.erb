@@ -1,18 +1,9 @@
 <%= form_with(model: goal) do |form| %>
-  <% if goal.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(goal.errors.count, "error") %> prohibited this goal from being saved:</h2>
 
-      <ul>
-        <% goal.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%=error_messages_for(form.object) %>
 
   <div class="my-form__control">
-    <%= form.label :title, 'Goal Title:' %>
+    <%= form.label :title, 'Title of the Goal:' %>
     <%= form.text_field :title, placeholder: 'e.g. named vocabulary in pictures -visual/verbal/max cues' %>
   </div>
 
@@ -22,7 +13,7 @@
   </div>
 
   <div class="my-form__control">
-    <%= form.label :more_info, 'More Information:' %>
+    <%= form.label :more_info, 'More Information(optional):' %>
     <%= form.text_area :more_info, placeholder: 'e.g. Expressive/Pragmatic Language - book (the tiny seed)' %>
   </div>
 

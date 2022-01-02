@@ -1,5 +1,7 @@
 <%= form_with(model: [@patient, @pronunciation], local: true) do |form| %>
 
+  <%=error_messages_for(form.object) %>
+
   <div>
     <%= form.label :patient_id, style: "display: block" %>
     <%= form.text_field :patient_id %>
