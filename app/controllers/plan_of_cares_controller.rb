@@ -2,7 +2,14 @@ class PlanOfCaresController < ApplicationController
   before_action :find_patient
 
   def index
-    @patient_goals = @patient.goals.includes(sub_goals: :words)
+    # @patient_goals = @patient.goals.includes(sub_goals: :words)
+    @patient_goals = @patient.goals.alphabetically
+    @patient_ltg_goals = @patient_goals.ltg
+    @patient_stg_goals = @patient_goals.stg
+  end
+
+  def show
+    @goal = Goal.includes(sub_goals: :words).find(params[:id])
   end
 
   def new

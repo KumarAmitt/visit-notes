@@ -1,15 +1,4 @@
-<!--<h1>Editing sub goal</h1>-->
-
-<%#= render "form", sub_goal: @sub_goal %>
-
-<!--<br>-->
-
-<!--<div>-->
-  <%#= link_to "Back", goals_path %>
-<!--</div>-->
-
-
-<% @page_title = 'Edit Sub-Goal' %>
+<% @page_title = truncate("Edit | #{@sub_goal.title}", length: 50) %>
 
 <div class="my-form">
   <%= link_to "<< Go Back", goals_path, class: 'back__link' %>

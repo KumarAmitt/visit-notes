@@ -2,19 +2,12 @@
 
   <%=error_messages_for(form.object) %>
 
-  <div>
-    <%= form.label :goal_id, style: "display: block" %>
+  <div class="my-form__info">
+    <%= form.label :goal_id, "Select a goal for #{@patient.name}" %>
     <%= form.select(:goal_id, @available_goals.map { |g| [g.title, g.id] }) %>
   </div>
 
-<!--  <input list="goals" class="form-control" name="goals">-->
-<!--  <datalist id="goals">-->
-    <%# @available_goals.each do |goal| %>
-<!--      <option value="<%#= goal.title %>">-->
-    <%# end  %>
-<!--  </datalist>-->
-
-  <div>
-    <%= form.submit %>
+  <div class="my-form__info">
+    <%= form.submit class: 'my-form__action-btn' %>
   </div>
 <% end %>

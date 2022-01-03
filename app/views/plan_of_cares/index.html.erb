@@ -1,68 +1,36 @@
-<h1><%= @patient.name %>'s Plan of Care</h1>
+<% @page_title = "#{@patient.name}'s Plan of Care" %>
 
-<%= link_to 'Back', root_path %> ||
-
-<%= link_to "Assign new goal to #{@patient.name}", new_patient_plan_of_care_path(@patient) %>
-
-<br>
-<br>
-
-<p style="color: green"><%= notice %></p>
-
-<!--<div style="background-color: #d864f1">-->
-  <%# @patient_goals.each do |goal| %>
-    <%#= goal.title%>
-
-<!--    <div style="background-color: #e0dc3d">-->
-      <%# goal.sub_goals.each do |sub_goal| %>
-<!--        <%#= sub_goal.title %> |-->
-        <%# if !@patient.sub_goals.exists?(sub_goal.id) %>
-          <%#=   link_to 'Create Note', new_patient_comment_path(@patient, {sub_goal_id: sub_goal.id}) %>
-        <%# else %>
-          <%#=   link_to 'Edit Note' %>
-        <%# end %>
-
-<!--          <div style="background-color: #85d472">-->
-            <%# sub_goal.words.each do |word| %>
-              <%#= word.name %>
-<!--              <br>-->
-            <%# end %>
-<!--          </div>-->
-      <%# end %>
-<!--    </div>-->
-  <%# end %>
-<!--</div>-->
+<div class="d-flex justify-content-between">
+  <%= link_to '<< Go Back', root_path, class: 'back__link ' %>
+  <%= link_to "Assign new goal to #{@patient.name}", new_patient_plan_of_care_path(@patient), class: 'my-btn' %>
+</div>
 
 
-<% @patient_goals.each do |goal| %>
-  <%= render goal, role: 'therapist' %>
-<% end %>
+<div class="d-flex mt-1 goals">
+  <div class="goals__item">
+    <% @patient_ltg_goals.each do |goal| %>
+      <div class="my-tile my-tile__ltg">
+        <%= link_to patient_plan_of_care_path(@patient, goal), class: 'my-tile__item' do %>
+          <div class="goal-type"><%= goal.goal_type %></div>
+          <div class="goal-title"><%= goal.id %>|<%= truncate(goal.title, length: 70) %></div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="goals__item">
+    <% @patient_stg_goals.each do |goal| %>
+      <div class="my-tile my-tile__ltg">
+        <%= link_to patient_plan_of_care_path(@patient, goal), class: 'my-tile__item' do %>
+          <div class="goal-type"><%= goal.goal_type %></div>
+          <div class="goal-title"><%= goal.id %>|<%= truncate(goal.title, length: 70) %></div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-<!--<div style="background-color: #d864f1">-->
-<%# @patient_goals.each do |goal| %>
-<%#= goal.title%>
-
-<!--    <div style="background-color: #e0dc3d">-->
-<%# goal.sub_goals.each do |sub_goal| %>
-<!--        <%#= sub_goal.title %> |-->
-<%# if !@patient.sub_goals.exists?(sub_goal.id) %>
-<%#=   link_to 'Create Note', new_patient_comment_path(@patient, {sub_goal_id: sub_goal.id}) %>
-<%# else %>
-<%#=   link_to 'Edit Note' %>
-<%# end %>
-
-<!--          <div style="background-color: #85d472">-->
-<%# sub_goal.words.each do |word| %>
-<%#= word.name %>
-<!--              <br>-->
-<%# end %>
-<!--          </div>-->
-<%# end %>
-<!--    </div>-->
-<%# end %>
-<!--</div>-->
 
 
 <%# @patient_goals.each do |goal| %>
-  <%#= render goal, role: 'therapist' %>
+<%#= render goal, role: 'therapist' %>
 <%# end %>

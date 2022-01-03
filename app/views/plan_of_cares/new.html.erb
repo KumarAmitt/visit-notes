@@ -1,5 +1,8 @@
-<h1>Add New Goal for <%= @patient.name %></h1>
+<% @page_title = "Add New Goal for #{@patient.name}" %>
 
-<%= render "form" %>
-
-<%= link_to 'Back', patient_plan_of_cares_path(@patient) %>
+<div class="my-form">
+  <%= link_to "<< Go Back", patient_plan_of_cares_path(@patient) %>
+  <div class="my-form__body">
+    <%= render "form" %>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :patients, only: [:index, :show] do
-    resources :plan_of_cares, only: [:index, :new, :create]
+    resources :plan_of_cares, only: [:index, :show, :new, :create]
     resources :comments, only: [:new, :create, :edit, :update]
     resources :pronunciations, only: [:new, :create]
   end
