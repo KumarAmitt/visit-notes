@@ -1,10 +1,10 @@
 class WordsController < ApplicationController
-  before_action :set_word, only: %i[show edit update destroy]
+  before_action :set_word, only: %i[edit update destroy]
+  before_action :find_goal
   before_action :find_sub_goal
 
   def new
     @word = @sub_goal.words.build
-    @words = Word.all
   end
 
   def edit; end
@@ -13,7 +13,7 @@ class WordsController < ApplicationController
     @word = @sub_goal.words.build(word_params)
 
     if @word.save
-      redirect_to goals_path, notice: 'Word  created'
+      redirect_to goal_path(@goal), notice: "Word created: #{@word.name}"
     else
       render :new, status: :unprocessable_entity
     end
@@ -21,7 +21,7 @@ class WordsController < ApplicationController
 
   def update
     if @word.update(word_params)
-      redirect_to goals_path, notice: 'Word was successfully updated.'
+      redirect_to goal_path(@goal), notice: 'Word was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -29,18 +29,21 @@ class WordsController < ApplicationController
 
   def destroy
     @word.destroy
-    redirect_to goals_path, notice: 'Word was successfully destroyed.'
+    redirect_to goal_path(@goal), notice: "'#{@word.name}' deleted"
   end
 
   private
 
-  def find_sub_goal
+  def find_goal
     @goal = Goal.find(params[:goal_id])
-    @sub_goal = SubGoal.find(params[:sub_goal_id])
+  end
+
+  def find_sub_goal
+    @sub_goal = goal.sub_goals.find(params[:sub_goal_id])
   end
 
   def set_word
-    @word = Word.find(params[:id])
+    @word = @sub_goal.words.find(params[:id])
   end
 
   def word_params

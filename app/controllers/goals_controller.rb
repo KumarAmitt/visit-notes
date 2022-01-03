@@ -29,7 +29,7 @@ class GoalsController < ApplicationController
 
   def update
     if @goal.update(goal_params)
-      redirect_to goals_path, notice: 'Goal was successfully updated.'
+      redirect_to goal_path(@goal), notice: "'#{@goal.title}' updated successfully."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -37,7 +37,6 @@ class GoalsController < ApplicationController
 
   def destroy
     @goal.destroy
-
     redirect_to goals_path, notice: 'Goal was successfully destroyed.'
   end
 

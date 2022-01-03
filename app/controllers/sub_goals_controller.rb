@@ -1,7 +1,7 @@
 class SubGoalsController < ApplicationController
   before_action :set_sub_goal, only: %i[edit update destroy]
 
-  before_action :find_goal
+  before_action :set_goal
 
   def new
     @sub_goal = @goal.sub_goals.build
@@ -13,7 +13,7 @@ class SubGoalsController < ApplicationController
     @sub_goal = @goal.sub_goals.build(sub_goal_params)
 
     if @sub_goal.save
-      redirect_to goals_path, notice: 'Sub goal was successfully created.'
+      redirect_to goal_path(@goal), notice: 'Sub goal was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -21,7 +21,7 @@ class SubGoalsController < ApplicationController
 
   def update
     if @sub_goal.update(sub_goal_params)
-      redirect_to goals_path, notice: 'Sub goal was successfully updated.'
+      redirect_to goal_path(@goal), notice: 'Sub goal was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -29,17 +29,17 @@ class SubGoalsController < ApplicationController
 
   def destroy
     @sub_goal.destroy
-    redirect_to goals_path, notice: 'Sub goal was successfully destroyed.'
+    redirect_to goal_path(@goal), notice: 'Sub goal was successfully destroyed.'
   end
 
   private
 
-  def find_goal
+  def set_goal
     @goal = Goal.find(params[:goal_id])
   end
 
   def set_sub_goal
-    @sub_goal = SubGoal.find(params[:id])
+    @sub_goal = @goal.sub_goals.find(params[:id])
   end
 
   def sub_goal_params

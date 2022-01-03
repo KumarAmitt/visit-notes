@@ -1,8 +1,16 @@
 <% @page_title = 'All Goals' %>
 
-<div class="d-flex justify-content-end">
+<div class="d-flex justify-content-between">
+  <%= render 'layouts/notifications' %>
   <%= link_to "Add New goal", new_goal_path, class: 'my-btn' %>
 </div>
+
+<% if @goals.size.zero? %>
+  <div class="no_content__message">
+    No goals available
+    <span>You have the opportunity to ADD the very first goal :)</span>
+  </div>
+<% end %>
 
 
 <div class="d-flex mt-1 goals">

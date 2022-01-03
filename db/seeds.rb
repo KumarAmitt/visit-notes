@@ -8,11 +8,14 @@
 
 # seed data for patients table
 
-Patient.create name: 'Tokyo'
-Patient.create name: 'Denver'
-Patient.create name: 'Raquel'
-Patient.create name: 'Nairobi'
-Patient.create name: 'Rio'
+Patient.create name: 'Hermione Granger'
+Patient.create name: 'Ron Weasley'
+Patient.create name: 'Harry Potter'
+Patient.create name: 'Ginny Weasley'
+Patient.create name: 'Rubeus Hagrid'
+Patient.create name: 'Minerva McGonagall'
+Patient.create name: 'Severus Snape'
+
 
 
 

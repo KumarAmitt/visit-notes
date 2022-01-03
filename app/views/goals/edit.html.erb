@@ -1,7 +1,7 @@
 <% @page_title = truncate("Edit | #{@goal.title}", length: 50) %>
 
 <div class="my-form">
-  <%= link_to "<< Go Back", goals_path, class: 'back__link' %>
+  <%= link_to "<< Go Back", goal_path(@goal), class: 'back__link' %>
   <div class="my-form__body">
     <%= render "form", goal: @goal %>
   </div>

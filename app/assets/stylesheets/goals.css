@@ -70,14 +70,21 @@
   width: 90%;
 }
 
+.goal__body {
+  margin-top: -2em;
+}
+
 .goal__type {
   text-transform: uppercase;
   letter-spacing: 2px;
+  font-size: 0.8rem;
 }
 
 .goal__title {
   font-weight: 700;
   text-align: center;
+  color: royalblue;
+  font-size: 1.2rem;
 }
 
 .goal__info {
