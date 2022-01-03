@@ -4,3 +4,9 @@
   display: flex;
   justify-content: space-evenly;
 }
+
+.comment_message {
+  color: green;
+  font-style: oblique;
+  margin-top: -1em;
+}

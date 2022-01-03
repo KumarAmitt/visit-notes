@@ -1,8 +1,8 @@
-<h1>Comments#new</h1>
+<% @page_title = "Comment on #{@patient.name}'s Performance" %>
 
-<%= link_to 'Back', patient_plan_of_cares_path %>
-
-<br>
-<br>
-
-<%= render "form" %>
+<div class="my-form">
+  <%= link_to "<< Go Back", patient_plan_of_care_path(@patient, @sub_goal.goal) %>
+  <div class="my-form__body">
+    <%= render "form" %>
+  </div>
+</div>

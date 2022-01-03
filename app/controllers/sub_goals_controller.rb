@@ -39,7 +39,7 @@ class SubGoalsController < ApplicationController
   end
 
   def set_sub_goal
-    @sub_goal = @goal.sub_goals.find(params[:id])
+    @sub_goal = SubGoal.find(params[:id])
   end
 
   def sub_goal_params

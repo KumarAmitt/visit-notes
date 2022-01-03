@@ -2,36 +2,42 @@
 
   <%=error_messages_for(form.object) %>
 
-  <div>
-    <%= form.label :patient_id, style: "display: block" %>
-    <%= form.text_field :patient_id %>
+  <div class="my-form__info">
+    <span>Word:</span>
+    <%= @word.name %>
   </div>
 
-  <div>
-    <%= form.label :word_id, style: "display: block" %>
-    <%= form.text_field :word_id, value: params[:word_id] %>
+  <%= form.hidden_field :patient_id %>
+  <%= form.hidden_field :word_id, value: params[:word_id] %>
+
+  <div class="my-form__control">
+    <%= form.label :trials %>
+    <%= form.text_field :trials, pattern: "[+-]*", placeholder: 'e.g. ++---+-' %>
   </div>
 
-  <div>
-    <%= form.label :trials, style: "display: block" %>
-    <%= form.text_field :trials %>
+  <div class="my-form__control">
+    <%= form.label :prompting_level %>
+
+    <div class="my-form__radio">
+      <div>
+        <%= form.radio_button :prompting_level, 'Independent', checked: true %>
+        <%= form.label :prompting_level, 'Independent' %>
+      </div>
+
+      <div>
+        <%= form.radio_button :prompting_level, 'Intermediate' %>
+        <%= form.label :prompting_level, 'Intermediate' %>
+      </div>
+
+      <div>
+        <%= form.radio_button :prompting_level, 'Controlling' %>
+        <%= form.label :prompting_level, 'Controlling' %>
+      </div>
+    </div>
+
   </div>
 
-  <div>
-    <%= form.label :prompting_level, style: "display: block" %>
-
-    <%= form.radio_button :prompting_level, 'Independent', checked: true %>
-    <%= form.label :prompting_level, 'Independent' %>
-
-    <%= form.radio_button :prompting_level, 'Intermediate' %>
-    <%= form.label :prompting_level, 'Intermediate' %>
-
-    <%= form.radio_button :prompting_level, 'Controlling' %>
-    <%= form.label :prompting_level, 'Controlling' %>
-
-  </div>
-
-  <div>
-    <%= form.submit %>
+  <div class="my-form__control">
+    <%= form.submit class: 'my-form__action-btn' %>
   </div>
 <% end %>

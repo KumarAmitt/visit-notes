@@ -1,9 +1,8 @@
 class PlanOfCaresController < ApplicationController
   before_action :find_patient
+  before_action :find_patient_goal, only: %i[index new]
 
   def index
-    # @patient_goals = @patient.goals.includes(sub_goals: :words)
-    @patient_goals = @patient.goals.alphabetically
     @patient_ltg_goals = @patient_goals.ltg
     @patient_stg_goals = @patient_goals.stg
   end
@@ -14,9 +13,7 @@ class PlanOfCaresController < ApplicationController
 
   def new
     @poc = @patient.plan_of_cares.build
-
-    @assigned_goals = @patient.goals
-    @available_goals = Goal.where.not(id: @assigned_goals.pluck(:id))
+    @available_goals = Goal.where.not(id: @patient_goals.pluck(:id)).alphabetically
   end
 
   def create
@@ -33,6 +30,10 @@ class PlanOfCaresController < ApplicationController
 
   def find_patient
     @patient = Patient.find(params[:patient_id])
+  end
+
+  def find_patient_goal
+    @patient_goals = @patient.goals.alphabetically
   end
 
   def plan_of_cares_params

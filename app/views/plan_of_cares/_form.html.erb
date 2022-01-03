@@ -4,7 +4,7 @@
 
   <div class="my-form__info">
     <%= form.label :goal_id, "Select a goal for #{@patient.name}" %>
-    <%= form.select(:goal_id, @available_goals.map { |g| [g.title, g.id] }) %>
+    <%= form.select(:goal_id, @available_goals.map { |g| ["#{g.goal_type} | #{g.title}", g.id] }) %>
   </div>
 
   <div class="my-form__info">

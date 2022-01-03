@@ -2,22 +2,29 @@
 
   <%=error_messages_for(form.object) %>
 
-  <div>
-    <%= form.label :patient_id, style: "display: block" %>
-    <%= form.text_field :patient_id %>
+  <div class="my-form__info">
+    <div>
+      <span>Goal:</span>
+      <%= @sub_goal.goal.title %>
+    </div>
+    <div>
+      <span>Sub-Goal:</span>
+      <%= @sub_goal.title %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :sub_goal_id, style: "display: block" %>
-    <%= form.text_field :sub_goal_id, value: params[:sub_goal_id] %>
+  <%= form.hidden_field :patient_id %>
+  <%= form.hidden_field :sub_goal_id, value: @sub_goal.id %>
+
+  <div class="my-form__control">
+    <%= form.label :message%>
+    <%= form.text_area :message, placeholder: "How did #{@patient.name} performed in achieving sub-goal: #{@sub_goal.title}?" %>
   </div>
 
-  <div>
-    <%= form.label :message, style: "display: block" %>
-    <%= form.text_field :message %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+  <div class="my-form__control">
+    <%= form.submit class: 'my-form__action-btn' %>
   </div>
 <% end %>
+
+
+

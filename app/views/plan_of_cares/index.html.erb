@@ -6,6 +6,14 @@
 </div>
 
 
+<% if @patient_goals.size.zero? %>
+  <div class="no_content__message">
+    No goals available
+    <span>Assign new goals to <%= @patient.name %>> :)</span>
+  </div>
+<% end %>
+
+
 <div class="d-flex mt-1 goals">
   <div class="goals__item">
     <% @patient_ltg_goals.each do |goal| %>
@@ -19,7 +27,7 @@
   </div>
   <div class="goals__item">
     <% @patient_stg_goals.each do |goal| %>
-      <div class="my-tile my-tile__ltg">
+      <div class="my-tile my-tile__stg">
         <%= link_to patient_plan_of_care_path(@patient, goal), class: 'my-tile__item' do %>
           <div class="goal-type"><%= goal.goal_type %></div>
           <div class="goal-title"><%= goal.id %>|<%= truncate(goal.title, length: 70) %></div>

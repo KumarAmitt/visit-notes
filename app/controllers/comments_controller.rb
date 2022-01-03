@@ -1,12 +1,13 @@
 class CommentsController < ApplicationController
+
+  before_action :find_patient
+
   def new
-    @patient = Patient.find(params[:patient_id])
+    @sub_goal = SubGoal.find(params[:sub_goal_id])
     @comment = @patient.comments.build
-    @pronunciation = @patient.pronunciations.build
   end
 
   def create
-    @patient = Patient.find(params[:patient_id])
     @comment = @patient.comments.build(comment_params)
 
     if @comment.save
@@ -16,13 +17,9 @@ class CommentsController < ApplicationController
     end
   end
 
-  # def edit
-  #   @patient = Patient.find(params[:patient_id])
-  #   @comment = Comment.find(params[:comment_id])
-  # end
-  #
-  # def update
-  # end
+  def find_patient
+    @patient = Patient.find(params[:patient_id])
+  end
 
   private
 
