@@ -12,13 +12,14 @@
         <% end %>
       </div>
       <div class="acc-body__controls">
-        <% if role == 'admin' %>
+        <% if @patient.nil? %>
           <%= link_to "Add word", new_goal_sub_goal_word_path(goal, sub_goal), class: 'my-btn my-btn__small' %>
           <%= link_to "Edit", edit_goal_sub_goal_path(goal, sub_goal), class: 'my-btn my-btn__small' %>
           <%= button_to "Delete", [goal, sub_goal], method: :delete, class: 'my-btn my-btn__small my-btn__delete' %>
         <% else %>
           <% if @patient.sub_goals.exists?(sub_goal.id) %>
             <div class="comment_message">
+              <span>Therapist Feedback: </span>
               <%= @patient.comments.find_by(sub_goal_id: sub_goal.id).message %>
             </div>
           <% else %>

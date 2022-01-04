@@ -9,7 +9,7 @@
 <% if @patient_goals.size.zero? %>
   <div class="no_content__message">
     No goals available
-    <span>Assign new goals to <%= @patient.name %>> :)</span>
+    <span>Assign new goals to <%= @patient.name %> :)</span>
   </div>
 <% end %>
 
@@ -20,7 +20,7 @@
       <div class="my-tile my-tile__ltg">
         <%= link_to patient_plan_of_care_path(@patient, goal), class: 'my-tile__item' do %>
           <div class="goal-type"><%= goal.goal_type %></div>
-          <div class="goal-title"><%= goal.id %>|<%= truncate(goal.title, length: 70) %></div>
+          <div class="goal-title"><%= truncate(goal.title, length: 70) %></div>
         <% end %>
       </div>
     <% end %>
@@ -30,7 +30,7 @@
       <div class="my-tile my-tile__stg">
         <%= link_to patient_plan_of_care_path(@patient, goal), class: 'my-tile__item' do %>
           <div class="goal-type"><%= goal.goal_type %></div>
-          <div class="goal-title"><%= goal.id %>|<%= truncate(goal.title, length: 70) %></div>
+          <div class="goal-title"><%= truncate(goal.title, length: 70) %></div>
         <% end %>
       </div>
     <% end %>

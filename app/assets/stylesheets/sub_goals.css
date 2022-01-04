@@ -6,7 +6,15 @@
 }
 
 .comment_message {
-  color: green;
   font-style: oblique;
   margin-top: -1em;
+  width: 100%;
+  padding: 0.5em;
+  background-color: #a6e0a6;
+  border-radius: 0.2em;
+}
+
+.comment_message span {
+  font-weight: 700;
+  font-style: normal;
 }

@@ -1,0 +1,25 @@
+.patients {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.patient {
+  width: 50%;
+  font-size: 1.2rem;
+  margin: 0 auto 1em;
+  text-align: center;
+}
+
+.patient a {
+  box-shadow: 1px 1px 4px 2px #ccc;
+  border-radius: 0.2em;
+  text-decoration: none;
+  display: block;
+  padding: 0.5em;
+}
+
+.patient a:hover {
+  background: transparent linear-gradient(90deg, #b621fe 0%, #1fd1f9 100%) 0% 0% no-repeat padding-box;
+  color: #fff;
+}

@@ -5,11 +5,64 @@
 }
 
 .word__name {
-  border-right: 1px solid #ccc;
-  flex: 3;
-  margin-right: 1em;
+  flex: 1;
 }
 
 .word__controls {
+  flex: 2;
+  justify-content: flex-end;
+}
+
+.word__stats {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.word__stats * {
+  border-left: 1px solid #ccc;
+  text-align: center;
+}
+
+.word__trials {
+  flex: 3;
+  text-align: left;
+  padding-left: 1em;
+}
+
+.word__prompt {
+  flex: 2;
+}
+
+.word__prompt .independent {
+  border-left: none;
+  color: green;
+}
+
+.word__prompt .intermediate {
+  border-left: none;
+  color: royalblue;
+}
+
+.word__prompt .controlling {
+  border-left: none;
+  color: red;
+}
+
+.word__score {
   flex: 1;
+}
+
+.word__percent {
+  flex: 1;
+}
+
+.word__actions {
+  padding-left: 1em;
+  display: flex;
+  border-left: 1px solid #ccc;
+}
+
+.word__actions * + * {
+  margin-left: 0.5em;
 }

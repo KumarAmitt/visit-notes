@@ -1,17 +1,26 @@
 <% @page_title = 'All Patients' %>
 
-<table>
-  <thead>
-    <th>id</th>
-    <th>Name</th>
-  </thead>
-  <tbody>
-    <% @patients.each do |p| %>
-      <tr>
-        <td><%= p.id %></td>
-        <td><%= p.name %></td>
-        <td><%= link_to 'Plan of care', patient_plan_of_cares_path(p) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="patients">
+  <% @patients.each do |patient| %>
+    <div class="patient">
+      <%= link_to patient.name, patient_plan_of_cares_path(patient) %>
+    </div>
+  <% end %>
+</div>
+
+
+<!--<table>-->
+<!--  <thead>-->
+<!--    <th>id</th>-->
+<!--    <th>Name</th>-->
+<!--  </thead>-->
+<!--  <tbody>-->
+    <%# @patients.each do |p| %>
+<!--      <tr>-->
+<!--        <td><%#= p.id %></td>-->
+<!--        <td><%#= p.name %></td>-->
+<!--        <td><%#= link_to 'Plan of care', patient_plan_of_cares_path(p) %></td>-->
+<!--      </tr>-->
+    <%# end %>
+<!--  </tbody>-->
+<!--</table>-->

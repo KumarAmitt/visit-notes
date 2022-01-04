@@ -1,12 +1,33 @@
 
 <div class="d-flex justify-content-between word__tile">
   <div class="word__name"><%= word.name %></div>
-  <div class="d-flex justify-content-evenly word__controls">
+  <div class="d-flex word__controls">
     <% if @patient %>
-      <%= link_to 'Do Trials', new_patient_pronunciation_path(@patient, { word_id: word.id }), class: 'my-btn my-btn__small' unless @patient.words.exists?(word.id) %>
+      <% if @patient.words.exists?(word.id) %>
+        <div class="word__stats">
+          <div class="word__trials">
+            <%= @patient.pronunciations.find_by(word_id: word.id).trials %>
+          </div>
+          <div class="word__prompt">
+            <%= prompting_level(@patient, word) %>
+          </div>
+          <div class="word__score">
+            <%= calc_score(@patient, word)[0] %>
+          </div>
+          <div class="word__percent">
+            <%= calc_score(@patient, word)[1] %>%
+          </div>
+        </div>
+      <% else %>
+        <div class="word__actions">
+          <%= link_to 'Do Trials', new_patient_pronunciation_path(@patient, { word_id: word.id }), class: 'my-btn my-btn__small' %>
+        </div>
+      <% end %>
     <% else %>
-      <%= link_to "Edit", edit_goal_sub_goal_word_path(goal, sub_goal, word), class: 'my-btn my-btn__small' %>
-      <%= button_to "Delete", [sub_goal.goal, sub_goal, word], method: :delete, class: 'my-btn my-btn__small my-btn__delete ' %>
+      <div class="word__actions">
+        <%= link_to "Edit", edit_goal_sub_goal_word_path(goal, sub_goal, word), class: 'my-btn my-btn__small' %>
+        <%= button_to "Delete", [sub_goal.goal, sub_goal, word], method: :delete, class: 'my-btn my-btn__small my-btn__delete ' %>
+      </div>
     <% end %>
   </div>
 </div>

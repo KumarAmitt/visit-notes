@@ -10,7 +10,7 @@
     <%= render 'layouts/notifications' %>
     <div class="d-flex flex-column align-items-center px-4 goal__body">
       <div class="goal__type my-2"><%= goal.goal_type === 'STG' ? 'Short Term Goal' : 'Long term Goal' %></div>
-      <div class="goal__title my-2"><%= goal.id %>|<%= goal.title %></div>
+      <div class="goal__title my-2"><%= goal.title %></div>
       <div class="goal__info my-2"><%= goal.more_info %></div>
     </div>
     <div class="d-flex justify-content-between my-button-group">
