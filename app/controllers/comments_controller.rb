@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     @comment = @patient.comments.build(comment_params)
 
     if @comment.save
-      redirect_to patient_plan_of_cares_path, notice: 'Comment registered'
+      redirect_to patient_plan_of_care_path(@patient, @comment.sub_goal.goal), notice: 'Comment registered'
     else
       render :new, status: :unprocessable_entity
     end

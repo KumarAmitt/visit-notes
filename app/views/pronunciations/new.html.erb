@@ -1,7 +1,7 @@
 <% @page_title = "Pronunciation trials to #{@patient.name}" %>
 
 <div class="my-form">
-  <%= link_to "<< Go Back", patient_plan_of_cares_path, class: 'back__link' %>
+  <%= link_to "<< Go Back", patient_plan_of_care_path(@patient, @word.sub_goal.goal), class: 'back__link' %>
   <div class="my-form__body">
     <%= render "form" %>
   </div>

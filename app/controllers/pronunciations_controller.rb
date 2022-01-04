@@ -10,7 +10,7 @@ class PronunciationsController < ApplicationController
     @pronunciation = @patient.pronunciations.build(pronunciation_params)
 
     if @pronunciation.save
-      redirect_to patient_plan_of_cares_path, notice: 'Comment registered'
+      redirect_to patient_plan_of_care_path(@patient, @pronunciation.word.sub_goal.goal), notice: 'Trial done successfully'
     else
       render :new, status: :unprocessable_entity
     end
