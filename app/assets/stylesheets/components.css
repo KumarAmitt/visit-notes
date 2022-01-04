@@ -8,7 +8,7 @@
 /* MY_NAVBAR */
 
 .my-navbar-bg {
-  background: transparent linear-gradient(90deg, #B621FE 0%, #1FD1F9 100%) 0% 0% no-repeat padding-box;
+  background: transparent linear-gradient(90deg, #b621fe 0%, #1fd1f9 100%) 0% 0% no-repeat padding-box;
 }
 
 /* MY-BUTTON */
@@ -39,7 +39,7 @@
   border-color: #b621fe;
 }
 
-/*MY_TILE*/
+/* MY_TILE */
 
 .my-tile {
   border: 1px solid;
@@ -85,7 +85,7 @@
   font-size: 1.2rem;
 }
 
-/*NOTIFICATIONS*/
+/* NOTIFICATIONS */
 
 .notification .notification-green {
   color: green;

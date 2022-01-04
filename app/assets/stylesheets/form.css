@@ -15,6 +15,12 @@
   margin-bottom: 2em;
 }
 
+label {
+  font-size: 1.2rem;
+  margin-bottom: 0.5em;
+  color: royalblue;
+}
+
 .my-form label {
   display: block;
 }
@@ -47,12 +53,6 @@
   border-color: #b621fe;
 }
 
-label {
-  font-size: 1.2rem;
-  margin-bottom: 0.5em;
-  color: royalblue;
-}
-
 input:not([type="radio"]),
 textarea,
 select {
@@ -63,11 +63,8 @@ select {
   border-radius: 0.2em;
 }
 
-textarea:focus,
-input:focus,
-select:focus {
-  outline: none;
-  border: 1px solid #b621fe;
+textarea {
+  height: 8em;
 }
 
 select {
@@ -75,12 +72,15 @@ select {
   cursor: pointer;
 }
 
-select option {
-  color: royalblue;
+textarea:focus,
+input:focus,
+select:focus {
+  outline: none;
+  border: 1px solid #b621fe;
 }
 
-textarea {
-  height: 8em;
+select option {
+  color: royalblue;
 }
 
 .my-form__radio {
@@ -91,4 +91,3 @@ textarea {
 .my-form__radio div label {
   display: inline;
 }
-
