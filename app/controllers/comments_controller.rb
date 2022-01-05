@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-
   before_action :find_patient
 
   def new

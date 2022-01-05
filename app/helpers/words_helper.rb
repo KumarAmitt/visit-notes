@@ -1,5 +1,4 @@
 module WordsHelper
-
   def calc_score(patient, word)
     trials = patient.pronunciations.find_by(word_id: word.id).trials
     success = trials.count('+')
@@ -19,5 +18,4 @@ module WordsHelper
       "<div class='controlling'>Controlling</div>".html_safe
     end
   end
-
 end

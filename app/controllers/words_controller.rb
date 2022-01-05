@@ -39,7 +39,7 @@ class WordsController < ApplicationController
   end
 
   def find_sub_goal
-    @sub_goal = SubGoal.find(params[:sub_goal_id])
+    @sub_goal = SubGoal.includes(:words).find(params[:sub_goal_id])
   end
 
   def set_word
