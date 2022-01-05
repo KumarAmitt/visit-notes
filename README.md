@@ -12,6 +12,10 @@ of a patient and write feedback notes for them.
 - The system calculates the associated score the displays it after finishing the trial for each word.
 - A therapist can leave a feedback note on patient performance after finishing each sub-goal.
 
+![screenshot](./app/assets/images/scr2.png)
+
+![screenshot](./app/assets/images/scr1.png)
+
 ## Built With 🛠
 
 ```
