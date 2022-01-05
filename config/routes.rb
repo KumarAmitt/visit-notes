@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   end
 
   resources :goals do
-    resources :sub_goals, except: [:index] do
-      resources :words, except: [:index]
+    resources :sub_goals, except: [:index, :show] do
+      resources :words, except: [:index, :show]
     end
   end
 
