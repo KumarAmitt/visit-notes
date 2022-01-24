@@ -42,6 +42,6 @@ of a patient and write feedback notes for them.
   
 - First, go to the Goals and set a few goals, sub-goals, and words (as the admin sets these data in advance).
 - Go to the patient to choose a patient. Now you can assign goals to the patient.
-- After assigning a goal, you can select a goal to do leave specific notes for each sub-goals, and can do the trials for the associated words.
+- After assigning a goal, you can select a goal to leave specific notes for each sub-goals, and can do the trials for the associated words.
 
 
